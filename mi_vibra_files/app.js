@@ -11,7 +11,7 @@ var ombak=7.83; //starting ombak en Shumman Frequency in Hz
 var canvi=1000;//ms
 var prob=1;//para dar probabilidad de existencia de la onda 1 = 100%
 var serieArmonicos = [ 2 , 3/2 , 4/3 , 5/4 ]
-
+let barSpeed = 100; //velocidad de llenar barra 100 para test rapido 
 function creaOscilador(f){//f=freq 
   var notarr=[];
   // oscilador
@@ -45,12 +45,43 @@ function creaOscilador(f){//f=freq
   return notarr
 }
 
+let addOns = ['', ]
+
+
+var i = 0;
+function barAnimation() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 1000);
+    function frame() {
+      if (width >= 1000) {
+        clearInterval(id);
+        i = 0;
+        width = 1;
+        window.document.getElementById('levelUp').style.display="inline";
+        const botones = window.document.getElementById('botones')
+        botones.style.display="block";
+
+        //elem.style.width = 0;
+        return ;
+      } else {
+        width += barSpeed;
+        elem.style.width = width/10 + "%";
+      }
+    }
+  }
+}
+
 function start(){    /////                  INICIO      ///////////////////
 
   window.document.getElementById('startPoint').style.display="none";
-  window.document.getElementById('botones').style.display="block";
+  window.document.getElementById('myProgress').style.display="block";
   inicio=true;
   info();
+  barAnimation();
+
   //creaEscala();
 
   var o=creaOscilador(VIBRA)  /// la vibra
@@ -66,7 +97,15 @@ function start(){    /////                  INICIO      ///////////////////
  
 }
 
+const resetProgress = () => {
+  window.document.getElementById('levelUp').style.display="none";
+  const botones = window.document.getElementById('botones')
+  botones.style.display="none";
+  barAnimation()
+}
+
 function addArmonic(num){
+  console.log('add armonic');
   let n=num||0;
   let ef=serieArmonicos[n];
   var ob=creaOscilador(VIBRA * ef)   ///armónico
@@ -76,6 +115,7 @@ function addArmonic(num){
 
   ponEstrellas(2);
   balancea();
+  resetProgress();
 }
 
 

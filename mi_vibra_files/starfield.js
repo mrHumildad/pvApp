@@ -37,7 +37,7 @@ function oscEstrellas(){
   for (let i = 0; i < mainArr.length; i++) {
     mainArr[i][3].getFloatTimeDomainData(floarr);
     let radiusito=(sumarr(floarr)/ratio)/mainArr[i][0].frequency.value;// magia
-    console.log(ratio,radiusito)
+    //console.log(ratio,radiusito)
     if (radiusito<0) {
       radiusito=10;
     }

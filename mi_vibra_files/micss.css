@@ -41,15 +41,38 @@ button{
   right: 20%;
   font-size: 2em;
 }
-#botones {
+#myProgress {
   position: absolute;
-  width: 90%;
   left:10%;
-  top: calc(100% - 50px); /* Example: 50px below #startPoint */
-
-  right: 20%;
+  /* top: calc(100% - 50px); /* Example: 50px below #startPoint */
+  bottom: 2vh;
+  border: 3px solid blue;
+  box-sizing: border-box;
   font-size: 1em;
   display: none;
+  opacity: 0.5;
+  width: 80%;
+  height: 5vh;
+  background-color: #ddd;
+  border-radius: 12%;
+}
+
+#botones {
+  display: none;
+  position: absolute;
+  bottom: 9vh;
+  left: 10%;
+}
+
+#levelUp {
+  display: none;
+  text-align: center;
+}
+
+#myBar {
+  width: 1%;
+  height: 100%;
+  background-color: #04AA6D;
 }
 
 #container {
