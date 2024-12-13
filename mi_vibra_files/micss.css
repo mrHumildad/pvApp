@@ -24,8 +24,8 @@ body {
 
 canvas{
   width: 100%;
-  border: 3px solid red;
-  box-sizing: border-box;
+  /* border: 3px solid red;
+  box-sizing: border-box; */
 }
 
 button{
@@ -46,8 +46,8 @@ button{
   left:10%;
   /* top: calc(100% - 50px); /* Example: 50px below #startPoint */
   bottom: 2vh;
-  border: 3px solid blue;
-  box-sizing: border-box;
+/*   border: 3px solid blue;
+ */  box-sizing: border-box;
   font-size: 1em;
   display: none;
   opacity: 0.5;
